@@ -1,0 +1,151 @@
+---
+/**
+ * Gallery.astro — Editorial photo gallery
+ * Layout: CSS columns masonry — 2 columns desktop, 1 column mobile
+ * Max width: 1280px (per VISUAL_DIRECTION.md)
+ * Aspect ratios: portrait 4:5, wide 16:9, square 1:1
+ * Treatment: 4px rounded corners, brightness(0.95) saturate(0.92)
+ * NO carousels, NO bento grids, NO lightbox (Phase 1 scope)
+ */
+
+interface GalleryPhoto {
+  src: string;
+  alt: string;
+  aspect: 'portrait' | 'wide' | 'square';
+}
+
+interface Props {
+  eyebrow: string;
+  photos: GalleryPhoto[];
+}
+
+const { eyebrow, photos } = Astro.props;
+
+const aspectMap = {
+  portrait: '4 / 5',
+  wide: '16 / 9',
+  square: '1 / 1',
+};
+---
+
+<section
+  id="gallery"
+  class="gallery-section"
+  aria-label="Photo gallery"
+>
+  <div class="gallery-container">
+    <p class="text-eyebrow gallery-eyebrow" style={`color: var(--color-fg-subtle);`}>
+      {eyebrow}
+    </p>
+
+    <div class="gallery-grid">
+      {photos.map((photo, i) => (
+        <figure class="gallery-item" data-aspect={photo.aspect}>
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="gallery-photo"
+            style={`aspect-ratio: ${aspectMap[photo.aspect]};`}
+            loading={i < 4 ? 'eager' : 'lazy'}
+            decoding="async"
+            onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+          />
+          <div
+            class="gallery-placeholder"
+            style={`aspect-ratio: ${aspectMap[photo.aspect]}; display: none;`}
+          >
+            <span class="text-body-s" style={`color: var(--color-fg-subtle);`}>
+              {String(i + 1).padStart(2, '0')}
+            </span>
+          </div>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-section {
+    padding: 96px 24px;
+  }
+
+  .gallery-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  /* ── Masonry via CSS columns ── */
+  .gallery-grid {
+    columns: 1;
+    column-gap: 16px;
+  }
+
+  .gallery-item {
+    margin: 0;
+    padding: 0;
+    break-inside: avoid;
+    margin-bottom: 16px;
+  }
+
+  .gallery-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+    filter: brightness(0.95) saturate(0.92);
+    transition: filter var(--duration-hover) var(--ease-entrance);
+  }
+
+  .gallery-photo:hover {
+    filter: brightness(1) saturate(1);
+  }
+
+  .gallery-placeholder {
+    width: 100%;
+    background: var(--color-bg-elevated);
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Desktop: 2 columns ── */
+  @media (min-width: 768px) {
+    .gallery-section {
+      padding: 192px 64px;
+    }
+
+    .gallery-container {
+      gap: 64px;
+    }
+
+    .gallery-grid {
+      columns: 2;
+      column-gap: 24px;
+    }
+
+    .gallery-item {
+      margin-bottom: 24px;
+    }
+  }
+
+  /* ── Large desktop: 3 columns for 30+ photos ── */
+  @media (min-width: 1024px) {
+    .gallery-grid {
+      columns: 3;
+    }
+  }
+</style>
+
+<script>
+  import { animateFadeUp } from '../lib/gsap-utils';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    animateFadeUp('.gallery-section', '.gallery-item', {
+      stagger: 0.06,
+    });
+  });
+</script>

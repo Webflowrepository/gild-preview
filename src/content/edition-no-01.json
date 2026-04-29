@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "editionNumber": "No. 01",
+    "title": "The GILD Edition · No. 01",
+    "tagline": "A private room, carefully preserved.",
+    "eventName": "Founder Community Dinner",
+    "location": "Austin",
+    "date": "April 2026",
+    "organizer": "GILD",
+    "sponsor": {
+      "name": "Tecla",
+      "logoSrc": "/assets/sponsors/tecla-placeholder.svg",
+      "url": "https://tecla.io"
+    }
+  },
+  "cover": {
+    "eyebrow": "THE GILD EDITION · NO. 01",
+    "titleLines": ["A private room,", "carefully preserved."],
+    "metadataLines": ["Founder Community Dinner", "Austin · April 2026"],
+    "sponsorLine": "Made possible with Tecla.",
+    "ctaLabel": "Enter the edition →",
+    "photoSrc": "/assets/photos/cover-placeholder.jpg",
+    "photoAlt": "A long dinner table set with candles before guests arrived."
+  },
+  "noteFromTheRoom": [
+    "The conversation ended close to midnight.",
+    "This is what could be carried out of the room",
+    "without breaking what was said inside it."
+  ],
+  "signals": [
+    {
+      "number": "01",
+      "title": "THE PRICING QUESTION KEPT RETURNING.",
+      "body": "Several founders returned to the same pricing question: how to move beyond seat-based models when customers increasingly expect outcomes, not access. The conversation moved past frameworks. It became practical — and uneasy."
+    },
+    {
+      "number": "02",
+      "title": "OPERATIONAL AI HAS A QUIET ADOPTION CURVE.",
+      "body": "The room agreed: the loud half of the AI conversation has moved past most operators. What remains is unsexy integration work, hiring decisions that look mundane on paper, and slow internal trust-building. Several described this as the actual work of 2026."
+    },
+    {
+      "number": "03",
+      "title": "SEVERANCE IS NOW A BRAND EVENT.",
+      "body": "A pattern emerged in how the room described senior departures: post-LinkedIn, every meaningful exit becomes a 90-day public moment. The discussion turned to severance design, framing language, and the cost of getting it wrong."
+    }
+  ],
+  "briefing": {
+    "eyebrow": "THE BRIEFING",
+    "title": "A more complete record.",
+    "body": "The full briefing extends what's above. Written in the same spirit. Sent only to those who were in the room. Six pages.",
+    "ctaLabel": "Download the briefing (PDF) →",
+    "ctaUrl": "/editions/no-01/briefing"
+  },
+  "gallery": {
+    "eyebrow": "THE EVENING",
+    "photos": [
+      { "src": "/assets/photos/gallery/01.jpg", "alt": "Gallery photo 01", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/02.jpg", "alt": "Gallery photo 02", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/03.jpg", "alt": "Gallery photo 03", "aspect": "wide" },
+      { "src": "/assets/photos/gallery/04.jpg", "alt": "Gallery photo 04", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/05.jpg", "alt": "Gallery photo 05", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/06.jpg", "alt": "Gallery photo 06", "aspect": "wide" },
+      { "src": "/assets/photos/gallery/07.jpg", "alt": "Gallery photo 07", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/08.jpg", "alt": "Gallery photo 08", "aspect": "square" },
+      { "src": "/assets/photos/gallery/09.jpg", "alt": "Gallery photo 09", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/10.jpg", "alt": "Gallery photo 10", "aspect": "wide" },
+      { "src": "/assets/photos/gallery/11.jpg", "alt": "Gallery photo 11", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/12.jpg", "alt": "Gallery photo 12", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/13.jpg", "alt": "Gallery photo 13", "aspect": "wide" },
+      { "src": "/assets/photos/gallery/14.jpg", "alt": "Gallery photo 14", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/15.jpg", "alt": "Gallery photo 15", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/16.jpg", "alt": "Gallery photo 16", "aspect": "wide" },
+      { "src": "/assets/photos/gallery/17.jpg", "alt": "Gallery photo 17", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/18.jpg", "alt": "Gallery photo 18", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/19.jpg", "alt": "Gallery photo 19", "aspect": "wide" },
+      { "src": "/assets/photos/gallery/20.jpg", "alt": "Gallery photo 20", "aspect": "square" },
+      { "src": "/assets/photos/gallery/21.jpg", "alt": "Gallery photo 21", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/22.jpg", "alt": "Gallery photo 22", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/23.jpg", "alt": "Gallery photo 23", "aspect": "wide" },
+      { "src": "/assets/photos/gallery/24.jpg", "alt": "Gallery photo 24", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/25.jpg", "alt": "Gallery photo 25", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/26.jpg", "alt": "Gallery photo 26", "aspect": "wide" },
+      { "src": "/assets/photos/gallery/27.jpg", "alt": "Gallery photo 27", "aspect": "portrait" },
+      { "src": "/assets/photos/gallery/28.jpg", "alt": "Gallery photo 28", "aspect": "wide" },
+      { "src": "/assets/photos/gallery/29.jpg", "alt": "Gallery photo 29", "aspect": "square" },
+      { "src": "/assets/photos/gallery/30.jpg", "alt": "Gallery photo 30", "aspect": "portrait" }
+    ]
+  },
+  "roomInAggregate": {
+    "eyebrow": "THE ROOM, IN AGGREGATE",
+    "lines": [
+      "Thirty-five operators.",
+      "Twelve industries.",
+      "Four hours.",
+      "One evening."
+    ]
+  },
+  "voices": [
+    {
+      "quote": "The most useful conversations I've had this year happened in rooms exactly this size.",
+      "attribution": "SARAH — FOUNDER"
+    },
+    {
+      "quote": "I came expecting a panel. I got a conversation. That's the difference.",
+      "attribution": "DAVID — CTO"
+    },
+    {
+      "quote": "You can feel when a room is curated. This one was.",
+      "attribution": "MARÍA — CEO"
+    }
+  ],
+  "shareCaption": "A small dinner with founders and operators in Austin. Some of the most useful conversations of the year happen in rooms like this. Grateful to GILD and Tecla for hosting.",
+  "colophon": {
+    "photographerName": "Wynn Myers",
+    "photoRemovalEmail": "remove@gild.community",
+    "partnershipsEmail": "partnerships@gild.community"
+  }
+}

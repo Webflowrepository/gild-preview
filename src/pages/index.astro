@@ -25,13 +25,10 @@ import '../styles/global.css';
 
     <div class="hero-center">
       <h1 class="hero-title">
-        <span class="block overflow-hidden">
-          <span class="hero-line block">We're grateful to have</span>
+        <span class="hero-title-sub">
+          <span class="hero-line block">Thank you for being part of this</span>
         </span>
-        <span class="block overflow-hidden">
-          <span class="hero-line block">had you at this</span>
-        </span>
-        <span class="block overflow-hidden">
+        <span class="hero-title-main">
           <span class="hero-line block">GILD Forum</span>
         </span>
       </h1>
@@ -154,14 +151,32 @@ import '../styles/global.css';
 
   .hero-title {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-    font-size: clamp(1.8rem, 5.6vw, 4.4rem);
-    line-height: 1.15;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     color: var(--color-fg);
     margin: 0;
-    max-width: 1000px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-title-sub {
+    display: block;
+    font-weight: 300;
+    font-size: clamp(1rem, 2.2vw, 1.6rem);
+    letter-spacing: 0.12em;
+    color: var(--color-fg-muted);
+    overflow: hidden;
+  }
+
+  .hero-title-main {
+    display: block;
+    font-weight: 200;
+    font-size: clamp(2.4rem, 6.5vw, 5rem);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    overflow: hidden;
   }
 
   .hero-bottom {
@@ -322,8 +337,12 @@ import '../styles/global.css';
       padding: 20px 0;
     }
 
-    .hero-title {
-      font-size: 1.6rem;
+    .hero-title-sub {
+      font-size: 0.85rem;
+    }
+
+    .hero-title-main {
+      font-size: 2rem;
     }
 
     .hero-bottom {

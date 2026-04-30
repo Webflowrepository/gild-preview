@@ -50,6 +50,13 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- 02.5 FEATURED IMAGE -->
+  <section class="landing-photo-section">
+    <div class="landing-photo-container">
+      <img src="/assets/photos/GILD-11.jpg" alt="GILD Edition" class="landing-photo" />
+    </div>
+  </section>
+
   <!-- 03. NEXT EDITION + CALENDAR -->
   <section class="calendar-wrapper">
     <div class="calendar-header-text">
@@ -185,6 +192,26 @@ import '../styles/global.css';
     color: var(--color-fg) !important;
   }
 
+  /* ── LANDING PHOTO ── */
+  .landing-photo-section {
+    padding: 0 24px 64px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .landing-photo-container {
+    width: 100%;
+  }
+
+  .landing-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    filter: brightness(0.95) saturate(0.92);
+  }
+
   /* ── CALENDAR WRAPPER ── */
   .calendar-wrapper {
     padding: 64px 24px;
@@ -268,6 +295,10 @@ import '../styles/global.css';
     .micro-scroll {
       margin-top: 128px;
     }
+
+    .landing-photo-section {
+      padding: 0 64px 128px;
+    }
   }
 </style>
 
@@ -281,6 +312,8 @@ import '../styles/global.css';
       stagger: 0.1,
       delay: 0.4,
     });
+
+    animateFadeUp('.landing-photo-section', '.landing-photo', { delay: 0.6 });
 
     // Sections Entrance
     animateFadeUp('.calendar-wrapper', '.calendar-header-text h2');

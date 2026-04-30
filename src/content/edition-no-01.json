@@ -19,7 +19,7 @@
     "metadataLines": ["Founder Community Dinner", "Austin · April 2026"],
     "sponsorLine": "Made possible with Tecla.",
     "ctaLabel": "Enter the edition →",
-    "photoSrc": "/assets/photos/cover-placeholder.jpg",
+    "photoSrc": "/assets/photos/GILD-11.jpg",
     "photoAlt": "A long dinner table set with candles before guests arrived."
   },
   "noteFromTheRoom": [
@@ -54,36 +54,13 @@
   "gallery": {
     "eyebrow": "THE EVENING",
     "photos": [
-      { "src": "/assets/photos/gallery/01.jpg", "alt": "Gallery photo 01", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/02.jpg", "alt": "Gallery photo 02", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/03.jpg", "alt": "Gallery photo 03", "aspect": "wide" },
-      { "src": "/assets/photos/gallery/04.jpg", "alt": "Gallery photo 04", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/05.jpg", "alt": "Gallery photo 05", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/06.jpg", "alt": "Gallery photo 06", "aspect": "wide" },
-      { "src": "/assets/photos/gallery/07.jpg", "alt": "Gallery photo 07", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/08.jpg", "alt": "Gallery photo 08", "aspect": "square" },
-      { "src": "/assets/photos/gallery/09.jpg", "alt": "Gallery photo 09", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/10.jpg", "alt": "Gallery photo 10", "aspect": "wide" },
-      { "src": "/assets/photos/gallery/11.jpg", "alt": "Gallery photo 11", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/12.jpg", "alt": "Gallery photo 12", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/13.jpg", "alt": "Gallery photo 13", "aspect": "wide" },
-      { "src": "/assets/photos/gallery/14.jpg", "alt": "Gallery photo 14", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/15.jpg", "alt": "Gallery photo 15", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/16.jpg", "alt": "Gallery photo 16", "aspect": "wide" },
-      { "src": "/assets/photos/gallery/17.jpg", "alt": "Gallery photo 17", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/18.jpg", "alt": "Gallery photo 18", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/19.jpg", "alt": "Gallery photo 19", "aspect": "wide" },
-      { "src": "/assets/photos/gallery/20.jpg", "alt": "Gallery photo 20", "aspect": "square" },
-      { "src": "/assets/photos/gallery/21.jpg", "alt": "Gallery photo 21", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/22.jpg", "alt": "Gallery photo 22", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/23.jpg", "alt": "Gallery photo 23", "aspect": "wide" },
-      { "src": "/assets/photos/gallery/24.jpg", "alt": "Gallery photo 24", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/25.jpg", "alt": "Gallery photo 25", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/26.jpg", "alt": "Gallery photo 26", "aspect": "wide" },
-      { "src": "/assets/photos/gallery/27.jpg", "alt": "Gallery photo 27", "aspect": "portrait" },
-      { "src": "/assets/photos/gallery/28.jpg", "alt": "Gallery photo 28", "aspect": "wide" },
-      { "src": "/assets/photos/gallery/29.jpg", "alt": "Gallery photo 29", "aspect": "square" },
-      { "src": "/assets/photos/gallery/30.jpg", "alt": "Gallery photo 30", "aspect": "portrait" }
+      { "src": "/assets/photos/DSCF3426 (1).jpeg", "alt": "GILD Event Photo", "aspect": "portrait" },
+      { "src": "/assets/photos/DSCF3589 (2).jpeg", "alt": "GILD Event Photo", "aspect": "portrait" },
+      { "src": "/assets/photos/DSCS6151.jpeg", "alt": "GILD Event Photo", "aspect": "portrait" },
+      { "src": "/assets/photos/GILD-11.jpg", "alt": "GILD Event Photo", "aspect": "wide" },
+      { "src": "/assets/photos/DSCS6197.jpeg", "alt": "GILD Event Photo", "aspect": "portrait" },
+      { "src": "/assets/photos/DSCS6229.jpeg", "alt": "GILD Event Photo", "aspect": "portrait" },
+      { "src": "/assets/photos/GILD-25.jpg", "alt": "GILD Event Photo", "aspect": "portrait" }
     ]
   },
   "roomInAggregate": {

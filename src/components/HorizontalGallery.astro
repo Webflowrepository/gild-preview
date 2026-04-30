@@ -377,7 +377,7 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
           tween.kill();
           section.style.height = '';
           if (progressContainer) progressContainer.classList.remove('is-visible');
-          if (hint) hint.classList.remove('is-visible');
+          if (hint) hint.classList.remove('is-hidden');
         };
       });
 

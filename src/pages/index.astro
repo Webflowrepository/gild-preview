@@ -42,6 +42,9 @@ import '../styles/global.css';
       <a href="https://www.tecla.io/" target="_blank" rel="noopener" class="sponsor-link">
         <img src="/assets/logos/tecla.png" alt="Tecla" class="sponsor-logo" />
       </a>
+      <svg class="hero-scroll-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
     </div>
   </section>
 
@@ -89,14 +92,6 @@ import '../styles/global.css';
     ]}
   />
 
-  <!-- 04.5 BRIEFING -->
-  <Briefing
-    eyebrow="THE BRIEFING"
-    title="A more complete record."
-    body="The full briefing extends what's above. Written in the same spirit. Sent only to those who were in the room. Six pages."
-    ctaLabel="Download the briefing (PDF) →"
-    ctaUrl="/editions/no-01/briefing"
-  />
 
   <!-- 05. SPECIAL THANKS -->
   <section class="thanks-section">
@@ -171,7 +166,7 @@ import '../styles/global.css';
   .hero-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-    font-size: clamp(2.2rem, 7vw, 5.5rem);
+    font-size: clamp(1.8rem, 5.6vw, 4.4rem);
     line-height: 1.15;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -209,6 +204,18 @@ import '../styles/global.css';
     height: 28px;
     width: auto;
     filter: brightness(0) invert(1);
+  }
+
+  .hero-scroll-arrow {
+    color: var(--color-fg-muted);
+    margin-top: 20px;
+    animation: hero-bounce 2.5s ease-in-out infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes hero-bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.3; }
+    50% { transform: translateY(5px); opacity: 0.6; }
   }
 
   /* ── VIEW ALL IMAGES ── */

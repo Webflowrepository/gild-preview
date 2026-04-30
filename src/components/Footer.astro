@@ -4,7 +4,9 @@
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-logo">
-      <img src="/assets/logos/logo-gild.png" alt="GILD" />
+      <a href="https://gildhq.com" target="_blank" rel="noopener" class="footer-logo-link">
+        <img src="/assets/logos/logo-gild.png" alt="GILD" />
+      </a>
     </div>
     <div class="footer-socials">
       <a href="https://www.linkedin.com/company/joingild/about/" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -52,6 +54,15 @@
     height: 24px;
     width: auto;
     filter: brightness(0) invert(1);
+  }
+
+  .footer-logo-link {
+    display: inline-block;
+    transition: opacity var(--duration-hover) var(--ease-entrance);
+  }
+
+  .footer-logo-link:hover {
+    opacity: 0.8;
   }
 
   .footer-socials {

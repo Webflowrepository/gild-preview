@@ -5,11 +5,7 @@
  */
 
 import Layout from '../../../layouts/Layout.astro';
-import Cover from '../../../components/Cover.astro';
-import NoteFromTheRoom from '../../../components/NoteFromTheRoom.astro';
-import Signals from '../../../components/Signals.astro';
 import Gallery from '../../../components/Gallery.astro';
-import Voices from '../../../components/Voices.astro';
 import editionData from '../../../content/edition-no-01.json';
 import { EditionSchema } from '../../../content/content-schema';
 
@@ -23,31 +19,11 @@ import '../../../styles/global.css';
   title={edition.meta.title}
   description={edition.meta.tagline}
 >
-  <!-- ═══ COVER ═══ -->
-  <Cover
-    eyebrow={edition.cover.eyebrow}
-    titleLines={edition.cover.titleLines}
-    metadataLines={edition.cover.metadataLines}
-    sponsorLine={edition.cover.sponsorLine}
-    ctaLabel={edition.cover.ctaLabel}
-    photoSrc="/assets/photos/cover-placeholder.jpg"
-    photoAlt={edition.cover.photoAlt}
-  />
-
-  <!-- ═══ NOTE FROM THE ROOM ═══ -->
-  <NoteFromTheRoom lines={edition.noteFromTheRoom} />
-
-  <!-- ═══ SIGNALS ═══ -->
-  <Signals signals={edition.signals} />
-
   <!-- ═══ GALLERY ═══ -->
   <Gallery
     eyebrow={edition.gallery.eyebrow}
     photos={edition.gallery.photos}
   />
-
-  <!-- ═══ VOICES ═══ -->
-  <Voices voices={edition.voices} />
 </Layout>
 
 

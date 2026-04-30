@@ -7,6 +7,7 @@ import Layout from '../layouts/Layout.astro';
 import EventCalendar from '../components/EventCalendar.astro';
 import RoomInAggregate from '../components/RoomInAggregate.astro';
 import Briefing from '../components/Briefing.astro';
+import HorizontalGallery from '../components/HorizontalGallery.astro';
 
 import '../styles/global.css';
 ---
@@ -44,18 +45,27 @@ import '../styles/global.css';
     </div>
 
     <div class="micro-scroll">
-      <a href="/editions/no-01/#gallery" class="text-body-s micro-scroll-link" style="color: var(--color-fg-subtle); text-align: center;">
+      <a href="#hgallery" class="text-body-s micro-scroll-link" style="color: var(--color-fg-subtle); text-align: center;">
         View images &darr;
       </a>
     </div>
   </section>
 
-  <!-- 02.5 FEATURED IMAGE -->
-  <section class="landing-photo-section">
-    <div class="landing-photo-container">
-      <img src="/assets/photos/GILD-11.jpg" alt="GILD Edition" class="landing-photo" />
-    </div>
-  </section>
+  <!-- 02.5 HORIZONTAL GALLERY -->
+  <div id="hgallery">
+    <HorizontalGallery
+      images={[
+        { src: "/assets/photos/DSCF3426 (1).jpeg", alt: "GILD Edition — Guests arriving" },
+        { src: "/assets/photos/GILD-11.jpg", alt: "GILD Edition — Dinner table" },
+        { src: "/assets/photos/DSCF3589 (2).jpeg", alt: "GILD Edition — Conversations" },
+        { src: "/assets/photos/DSCS6151.jpeg", alt: "GILD Edition — Evening ambiance" },
+        { src: "/assets/photos/DSCS6197.jpeg", alt: "GILD Edition — Community" },
+        { src: "/assets/photos/DSCS6229.jpeg", alt: "GILD Edition — The room" },
+        { src: "/assets/photos/GILD-25.jpg", alt: "GILD Edition — Closing" },
+      ]}
+      scrollMultiplier={1.2}
+    />
+  </div>
 
   <!-- 03. NEXT EDITION + CALENDAR -->
   <section class="calendar-wrapper">
@@ -192,25 +202,7 @@ import '../styles/global.css';
     color: var(--color-fg) !important;
   }
 
-  /* ── LANDING PHOTO ── */
-  .landing-photo-section {
-    padding: 0 24px 64px;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
 
-  .landing-photo-container {
-    width: 100%;
-  }
-
-  .landing-photo {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    aspect-ratio: 16 / 9;
-    border-radius: 4px;
-    filter: brightness(0.95) saturate(0.92);
-  }
 
   /* ── CALENDAR WRAPPER ── */
   .calendar-wrapper {
@@ -296,9 +288,7 @@ import '../styles/global.css';
       margin-top: 128px;
     }
 
-    .landing-photo-section {
-      padding: 0 64px 128px;
-    }
+
   }
 </style>
 
@@ -313,7 +303,7 @@ import '../styles/global.css';
       delay: 0.4,
     });
 
-    animateFadeUp('.landing-photo-section', '.landing-photo', { delay: 0.6 });
+
 
     // Sections Entrance
     animateFadeUp('.calendar-wrapper', '.calendar-header-text h2');

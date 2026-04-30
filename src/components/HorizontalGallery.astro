@@ -59,6 +59,14 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
         01 / {String(images.length).padStart(2, '0')}
       </span>
     </div>
+    <!-- Scroll hint — appears when pinned, fades out on interaction -->
+    <div class="hgallery-hint">
+      <span class="hgallery-hint-text text-body-s">Keep scrolling</span>
+      <svg class="hgallery-hint-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </div>
   </div>
 </section>
 
@@ -180,6 +188,41 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
     text-align: right;
   }
 
+  /* ── Scroll hint ── */
+  .hgallery-hint {
+    position: absolute;
+    right: clamp(2rem, 6vw, 6rem);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .hgallery-hint.is-visible {
+    opacity: 1;
+  }
+
+  .hgallery-hint-text {
+    color: var(--color-fg-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+
+  .hgallery-hint-arrow {
+    color: var(--color-fg-muted);
+    animation: nudge-right 1.5s ease-in-out infinite;
+  }
+
+  @keyframes nudge-right {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(6px); }
+  }
+
   /* ── Mobile: native horizontal scroll with snap ── */
   @media (max-width: 767px) {
     .hgallery-section {
@@ -214,6 +257,10 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
     .hgallery-progress {
       display: none;
     }
+
+    .hgallery-hint {
+      display: none;
+    }
   }
 </style>
 
@@ -232,6 +279,7 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
     const progressFill = section.querySelector<HTMLElement>('.hgallery-progress-fill');
     const progressContainer = section.querySelector<HTMLElement>('.hgallery-progress');
     const counter = section.querySelector<HTMLElement>('.hgallery-counter');
+    const hint = section.querySelector<HTMLElement>('.hgallery-hint');
     if (!pin || !track) return;
 
     const multiplier = parseFloat(section.dataset.scrollMultiplier || '1.2');
@@ -266,6 +314,10 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
         // Show progress
         if (progressContainer) progressContainer.classList.add('is-visible');
 
+        // Show scroll hint
+        if (hint) hint.classList.add('is-visible');
+        let hintDismissed = false;
+
         const tween = gsap.to(track, {
           x: () => -(track.scrollWidth - window.innerWidth),
           ease: 'none',
@@ -278,6 +330,12 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
             invalidateOnRefresh: true,
             anticipatePin: 1,
             onUpdate: (self) => {
+              // Dismiss hint after user scrolls a bit
+              if (!hintDismissed && self.progress > 0.05 && hint) {
+                hint.classList.remove('is-visible');
+                hintDismissed = true;
+              }
+
               // Update progress bar
               if (progressFill) {
                 progressFill.style.width = `${self.progress * 100}%`;
@@ -310,6 +368,7 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
           tween.kill();
           section.style.height = '';
           if (progressContainer) progressContainer.classList.remove('is-visible');
+          if (hint) hint.classList.remove('is-visible');
         };
       });
 

@@ -16,31 +16,32 @@ import '../styles/global.css';
   title="GILD — Post Event Portal"
   description="We truly appreciated having you at this GILD Edition."
 >
-  <!-- 01. HERO & 02. MICRO SCROLL -->
+  <!-- 01. HERO -->
   <section class="hero-section">
-    <div class="hero-container">
-      <div class="hero-left">
-        <img src="/assets/logos/logo-gild.png" alt="GILD" class="gild-logo" />
-        <h1 class="text-display-l hero-title" style="color: var(--color-fg);">
-          <span class="block overflow-hidden">
-            <span class="hero-line block">We truly appreciated</span>
-          </span>
-          <span class="block overflow-hidden">
-            <span class="hero-line block">having you at this</span>
-          </span>
-          <span class="block overflow-hidden">
-            <span class="hero-line block">GILD Edition</span>
-          </span>
-        </h1>
-      </div>
-      
-      <div class="hero-right">
-        <p class="text-body-s" style="color: var(--color-fg-muted); margin-bottom: 12px;">
-          Presented in partnership with
-        </p>
-        <a href="https://www.tecla.io/" target="_blank" rel="noopener" class="sponsor-link">
-          <img src="/assets/logos/tecla.png" alt="Tecla" class="sponsor-logo" />
-        </a>
+    <div class="hero-top">
+      <img src="/assets/logos/logo-gild.png" alt="GILD" class="gild-logo" />
+      <p class="hero-eyebrow text-eyebrow">A GILD Curated Circuit</p>
+    </div>
+
+    <div class="hero-center">
+      <h1 class="hero-title">
+        <span class="block overflow-hidden">
+          <span class="hero-line block">We truly appreciated</span>
+        </span>
+        <span class="block overflow-hidden">
+          <span class="hero-line block">having you at this</span>
+        </span>
+        <span class="block overflow-hidden">
+          <span class="hero-line block">GILD Edition</span>
+        </span>
+      </h1>
+    </div>
+
+    <div class="hero-bottom">
+      <p class="hero-partner-label text-body-s">Presented in partnership with</p>
+      <a href="https://www.tecla.io/" target="_blank" rel="noopener" class="sponsor-link">
+        <img src="/assets/logos/tecla.png" alt="Tecla" class="sponsor-logo" />
+      </a>
     </div>
   </section>
 
@@ -59,6 +60,13 @@ import '../styles/global.css';
       scrollMultiplier={1.2}
     />
   </div>
+
+  <!-- 02.7 VIEW ALL IMAGES CTA -->
+  <section class="view-all-section">
+    <a href="/editions/no-01/#gallery" class="view-all-link text-body-s">
+      View all images →
+    </a>
+  </section>
 
   <!-- 03. NEXT EDITION + CALENDAR -->
   <section class="calendar-wrapper">
@@ -120,46 +128,68 @@ import '../styles/global.css';
 <style>
   /* ── HERO ── */
   .hero-section {
-    padding: 128px 24px 64px;
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-
-  .hero-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 64px;
+    padding: 80px 24px;
+    box-sizing: border-box;
   }
 
-  .hero-left {
+  .hero-top {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
 
   .gild-logo {
-    height: 32px;
+    height: 28px;
     width: auto;
-    margin-bottom: 48px;
     filter: brightness(0) invert(1);
   }
 
-  .hero-title {
+  .hero-eyebrow {
+    color: var(--color-fg-subtle);
     margin: 0;
-    max-width: 640px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 11px;
   }
 
-  .hero-right {
+  .hero-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    color: var(--color-fg);
+    margin: 0;
+    max-width: 900px;
+  }
+
+  .hero-bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+  }
+
+  .hero-partner-label {
+    color: var(--color-fg-muted);
+    margin: 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 10px;
   }
 
   .sponsor-link {
@@ -172,12 +202,29 @@ import '../styles/global.css';
   }
 
   .sponsor-logo {
-    height: 32px;
+    height: 28px;
     width: auto;
     filter: brightness(0) invert(1);
   }
 
+  /* ── VIEW ALL IMAGES ── */
+  .view-all-section {
+    padding: 48px 24px;
+    text-align: center;
+  }
 
+  .view-all-link {
+    color: var(--color-fg-muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color var(--duration-hover) var(--ease-entrance);
+    padding: 8px 0;
+    display: inline-block;
+  }
+
+  .view-all-link:hover {
+    color: var(--color-fg);
+  }
 
   /* ── CALENDAR WRAPPER ── */
   .calendar-wrapper {
@@ -252,18 +299,8 @@ import '../styles/global.css';
   /* ── Responsive Layouts ── */
   @media (min-width: 768px) {
     .hero-section {
-      padding: 192px 64px 64px;
+      padding: 96px 64px;
     }
-
-    .gild-logo {
-      margin-bottom: 64px;
-    }
-
-    .scroll-prompt {
-      margin-top: 128px;
-    }
-
-
   }
 </style>
 
@@ -273,14 +310,13 @@ import '../styles/global.css';
   document.addEventListener('DOMContentLoaded', () => {
     // Hero Entrance
     animateCoverTitle('.hero-section', '.hero-line');
-    animateFadeUp('.hero-section', '.gild-logo, .hero-right', {
-      stagger: 0.1,
+    animateFadeUp('.hero-section', '.hero-top, .hero-bottom', {
+      stagger: 0.15,
       delay: 0.4,
     });
 
-
-
     // Sections Entrance
+    animateFadeUp('.view-all-section', '.view-all-link');
     animateFadeUp('.calendar-wrapper', '.calendar-header-text h2');
     animateFadeUp('.thanks-section', '.thanks-profile', { delay: 0.2 });
   });

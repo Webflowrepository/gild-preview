@@ -191,15 +191,22 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
   /* ── Scroll hint ── */
   .hgallery-hint {
     position: absolute;
-    right: clamp(2rem, 6vw, 6rem);
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 64px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     gap: 10px;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.6s ease;
     pointer-events: none;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 10px 20px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .hgallery-hint.is-visible {
@@ -207,20 +214,23 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
   }
 
   .hgallery-hint-text {
-    color: var(--color-fg-muted);
+    color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     font-size: 11px;
+    white-space: nowrap;
   }
 
   .hgallery-hint-arrow {
-    color: var(--color-fg-muted);
+    color: rgba(255, 255, 255, 0.8);
     animation: nudge-right 1.5s ease-in-out infinite;
+    width: 16px;
+    height: 16px;
   }
 
   @keyframes nudge-right {
     0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(6px); }
+    50% { transform: translateX(4px); }
   }
 
   /* ── Mobile: native horizontal scroll with snap ── */
@@ -331,7 +341,7 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
             anticipatePin: 1,
             onUpdate: (self) => {
               // Dismiss hint after user scrolls a bit
-              if (!hintDismissed && self.progress > 0.05 && hint) {
+              if (!hintDismissed && self.progress > 0.15 && hint) {
                 hint.classList.remove('is-visible');
                 hintDismissed = true;
               }

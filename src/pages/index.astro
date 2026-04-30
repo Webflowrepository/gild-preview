@@ -308,7 +308,55 @@ import '../styles/global.css';
     opacity: 0.8;
   }
 
-  /* ── Responsive Layouts ── */
+  /* ── Mobile: fit hero in 100vh ── */
+  @media (max-width: 767px) {
+    .hero-section {
+      height: 100vh;
+      height: 100dvh;
+      min-height: 0;
+      padding: 48px 20px 32px;
+    }
+
+    .hero-top {
+      gap: 14px;
+    }
+
+    .gild-logo {
+      height: 28px;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+    }
+
+    .hero-center {
+      padding: 20px 0;
+    }
+
+    .hero-title {
+      font-size: 1.6rem;
+    }
+
+    .hero-bottom {
+      gap: 8px;
+    }
+
+    .hero-partner-label {
+      font-size: 9px;
+    }
+
+    .sponsor-logo {
+      height: 28px;
+    }
+
+    .hero-scroll-arrow {
+      margin-top: 16px;
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  /* ── Desktop ── */
   @media (min-width: 768px) {
     .hero-section {
       padding: 96px 64px;

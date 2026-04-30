@@ -45,9 +45,11 @@ import '../styles/global.css';
     </div>
 
     <div class="micro-scroll">
-      <a href="#hgallery" class="text-body-s micro-scroll-link" style="color: var(--color-fg-subtle); text-align: center;">
-        View images &darr;
-      </a>
+      <div class="scroll-indicator" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
     </div>
   </section>
 
@@ -191,15 +193,14 @@ import '../styles/global.css';
     text-align: center;
   }
 
-  .micro-scroll-link {
-    text-decoration: none;
-    transition: color var(--duration-hover) var(--ease-entrance);
-    display: inline-block;
-    padding: 8px 0;
+  .scroll-indicator {
+    color: var(--color-fg-subtle);
+    animation: bounce 2s ease-in-out infinite;
   }
 
-  .micro-scroll-link:hover {
-    color: var(--color-fg) !important;
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(8px); opacity: 1; }
   }
 
 

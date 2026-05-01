@@ -45,7 +45,7 @@ body {
   color: var(--color-fg);
   background-color: var(--color-bg-base);
   background-image: radial-gradient(
-    ellipse 140% 100% at 20% 5%,
+    ellipse 140% 100% at 20% 95%,
     oklch(0.28 0.03 235) 0%,
     var(--color-bg-base) 45%,
     var(--color-bg-deep) 100%

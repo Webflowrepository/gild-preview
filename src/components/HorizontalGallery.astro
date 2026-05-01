@@ -20,7 +20,7 @@ interface Props {
   scrollMultiplier?: number;
 }
 
-const { images, scrollMultiplier = 1.2 } = Astro.props;
+const { images, scrollMultiplier = 0.8 } = Astro.props;
 ---
 
 <section
@@ -118,7 +118,7 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
   }
 
   .hgallery-photo {
-    height: 70vh;
+    height: 55vh;
     width: auto;
     object-fit: cover;
     display: block;
@@ -334,7 +334,7 @@ const { images, scrollMultiplier = 1.2 } = Astro.props;
             trigger: section,
             start: 'top top',
             end: () => `+=${(track.scrollWidth - window.innerWidth) * multiplier}`,
-            scrub: 1,
+            scrub: 0.4,
             pin: pin,
             invalidateOnRefresh: true,
             anticipatePin: 1,

@@ -7,7 +7,8 @@ import Layout from '../layouts/Layout.astro';
 import EventCalendar from '../components/EventCalendar.astro';
 import RoomInAggregate from '../components/RoomInAggregate.astro';
 import Briefing from '../components/Briefing.astro';
-import HorizontalGallery from '../components/HorizontalGallery.astro';
+import Gallery from '../components/Gallery.astro';
+import editionData from '../content/edition-no-01.json';
 
 import '../styles/global.css';
 ---
@@ -48,31 +49,11 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- 02.5 HORIZONTAL GALLERY -->
-  <div id="hgallery">
-    <HorizontalGallery
-      images={[
-        { src: "/assets/photos/event/DSCS7459.jpeg", alt: "GILD Edition — Networking" },
-        { src: "/assets/photos/event/DSCS7316.jpeg", alt: "GILD Edition — The venue" },
-        { src: "/assets/photos/event/DSCF3234.jpeg", alt: "GILD Edition — Setup details" },
-        { src: "/assets/photos/event/DSCS7324.jpeg", alt: "GILD Edition — Conversations" },
-        { src: "/assets/photos/event/DSCF3276.jpeg", alt: "GILD Edition — Guests mingling" },
-        { src: "/assets/photos/event/DSCS7407.jpeg", alt: "GILD Edition — Community" },
-        { src: "/assets/photos/event/DSCS7438.jpeg", alt: "GILD Edition — Evening ambiance" },
-        { src: "/assets/photos/event/DSCF3337.jpeg", alt: "GILD Edition — The room" },
-        { src: "/assets/photos/event/DSCS7513.jpeg", alt: "GILD Edition — Engagement" },
-        { src: "/assets/photos/event/DSCS7511.jpeg", alt: "GILD Edition — Closing moments" },
-      ]}
-      scrollMultiplier={0.8}
-    />
-  </div>
-
-  <!-- 02.7 VIEW ALL IMAGES CTA -->
-  <section class="view-all-section">
-    <a href="/editions/no-01/#gallery" class="view-all-link text-body-s">
-      View all images →
-    </a>
-  </section>
+  <!-- 02. GALLERY -->
+  <Gallery
+    eyebrow={editionData.gallery.eyebrow}
+    photos={editionData.gallery.photos}
+  />
 
   <!-- 03. NEXT EDITION + CALENDAR -->
   <section class="calendar-wrapper">
@@ -209,30 +190,6 @@ import '../styles/global.css';
   @keyframes hero-bounce {
     0%, 100% { transform: translateY(0); opacity: 0.5; }
     50% { transform: translateY(8px); opacity: 0.9; }
-  }
-
-  /* ── VIEW ALL IMAGES ── */
-  .view-all-section {
-    padding: 64px 24px;
-    text-align: center;
-  }
-
-  .view-all-link {
-    color: var(--color-fg-muted);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 13px;
-    transition: all 0.3s ease;
-    padding: 14px 32px;
-    display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 100px;
-  }
-
-  .view-all-link:hover {
-    color: var(--color-fg);
-    border-color: rgba(255, 255, 255, 0.4);
   }
 
   /* ── CALENDAR WRAPPER ── */
@@ -373,7 +330,6 @@ import '../styles/global.css';
     });
 
     // Sections Entrance
-    animateFadeUp('.view-all-section', '.view-all-link');
     animateFadeUp('.calendar-wrapper', '.calendar-header-text h2');
     animateFadeUp('.thanks-section', '.thanks-profile', { delay: 0.2 });
   });

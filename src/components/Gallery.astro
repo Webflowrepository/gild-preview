@@ -29,6 +29,17 @@ const { eyebrow, photos } = Astro.props;
       {eyebrow}
     </p>
 
+    <div class="gallery-actions">
+      <button class="download-all-btn" id="download-all-btn" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Download all photos</span>
+      </button>
+    </div>
+
     <div class="gallery-grid">
       {photos.map((photo, i) => (
         <figure class="gallery-item" data-index={i}>
@@ -107,6 +118,40 @@ const { eyebrow, photos } = Astro.props;
 
   .gallery-eyebrow {
     text-align: center;
+  }
+
+  /* ── Download all button ── */
+  .gallery-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .download-all-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .download-all-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .download-all-btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
   }
 
   /* ── Dense grid ── */
@@ -432,5 +477,56 @@ const { eyebrow, photos } = Astro.props;
         else prevPhoto();
       }
     }, { passive: true });
+
+    // Download All
+    const downloadAllBtn = document.getElementById('download-all-btn');
+    if (downloadAllBtn) {
+      downloadAllBtn.addEventListener('click', async () => {
+        const btnSpan = downloadAllBtn.querySelector('span');
+        const originalText = btnSpan?.textContent || '';
+        downloadAllBtn.setAttribute('disabled', 'true');
+        if (btnSpan) btnSpan.textContent = 'Preparing...';
+
+        try {
+          // Load JSZip dynamically
+          const JSZipModule = await import('https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm');
+          const JSZip = JSZipModule.default;
+          const zip = new JSZip();
+
+          // Fetch all photos in parallel
+          let completed = 0;
+          const total = photos.length;
+
+          const promises = photos.map(async (photo: { src: string }) => {
+            try {
+              const resp = await fetch(photo.src);
+              const blob = await resp.blob();
+              const filename = photo.src.split('/').pop() || `photo-${completed}.jpeg`;
+              zip.file(filename, blob);
+              completed++;
+              if (btnSpan) btnSpan.textContent = `${completed} / ${total}`;
+            } catch {
+              completed++;
+            }
+          });
+
+          await Promise.all(promises);
+          if (btnSpan) btnSpan.textContent = 'Zipping...';
+
+          const content = await zip.generateAsync({ type: 'blob' });
+          const url = URL.createObjectURL(content);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'GILD-Event-Photos.zip';
+          a.click();
+          URL.revokeObjectURL(url);
+        } catch (err) {
+          console.error('Download failed:', err);
+        }
+
+        downloadAllBtn.removeAttribute('disabled');
+        if (btnSpan) btnSpan.textContent = originalText;
+      });
+    }
   });
 </script>

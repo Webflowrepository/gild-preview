@@ -4,7 +4,6 @@
  */
 
 import Layout from '../layouts/Layout.astro';
-import EventCalendar from '../components/EventCalendar.astro';
 import RoomInAggregate from '../components/RoomInAggregate.astro';
 import Briefing from '../components/Briefing.astro';
 import Gallery from '../components/Gallery.astro';
@@ -51,15 +50,22 @@ import '../styles/global.css';
     eyebrow={editionData.gallery.eyebrow}
     photos={editionData.gallery.photos}
   />
-
-  <!-- 03. NEXT EDITION + CALENDAR -->
-  <section class="calendar-wrapper">
-    <div class="calendar-header-text">
+  
+  <!-- 03. NEXT EVENT -->
+  <section class="next-event-wrapper">
+    <div class="next-event-header">
       <h2 class="text-display-m" style="color: var(--color-fg); text-align: center;">
-        We would be delighted to have you join us for our next forum.
+        Next Event Gild Dallas:
       </h2>
     </div>
-    <EventCalendar calendarUrl="https://luma.com/gild" />
+    <div class="next-event-content">
+      <a href="https://luma.com/gild?e=evt-riacit5U6EIu16q" target="_blank" rel="noopener" class="next-event-link">
+        <img src="/assets/photos/events/06-16.webp" alt="Next Event GILD Dallas" class="next-event-image" />
+        <div class="next-event-overlay">
+          <span class="text-button">RSVP ON LUMA →</span>
+        </div>
+      </a>
+    </div>
   </section>
 
 
@@ -163,14 +169,72 @@ import '../styles/global.css';
     50% { transform: translateY(8px); opacity: 0.9; }
   }
 
-  /* ── CALENDAR WRAPPER ── */
-  .calendar-wrapper {
+  /* ── NEXT EVENT WRAPPER ── */
+  .next-event-wrapper {
     padding: 64px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
   }
 
-  .calendar-header-text {
+  .next-event-header {
     max-width: 480px;
-    margin: 0 auto 32px;
+    margin: 0 auto;
+  }
+
+  .next-event-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .next-event-link {
+    display: block;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform var(--duration-hover) var(--ease-entrance);
+  }
+
+  .next-event-link:hover {
+    transform: scale(1.02);
+  }
+
+  .next-event-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  .next-event-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--duration-hover) var(--ease-entrance);
+  }
+
+  .next-event-link:hover .next-event-overlay {
+    opacity: 1;
+  }
+
+  .text-button {
+    color: white;
+    font-family: var(--font-body);
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
   }
 
   /* ── Mobile: fit hero in 100vh ── */
@@ -241,6 +305,6 @@ import '../styles/global.css';
     });
 
     // Sections Entrance
-    animateFadeUp('.calendar-wrapper', '.calendar-header-text h2');
+    animateFadeUp('.next-event-wrapper', '.next-event-header h2, .next-event-content', { stagger: 0.2 });
   });
 </script>

@@ -74,14 +74,14 @@ import '../styles/global.css';
 <style>
   /* ── HERO ── */
   .hero-section {
-    min-height: auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 24px;
-    padding: 48px 24px 32px;
+    padding: 48px 24px;
     box-sizing: border-box;
   }
 
@@ -238,9 +238,9 @@ import '../styles/global.css';
   /* ── Mobile: fit hero in 100vh ── */
   @media (max-width: 767px) {
     .hero-section {
-      height: auto;
-      min-height: 0;
-      padding: 40px 20px 24px;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 48px 20px;
     }
 
     .hero-top {
